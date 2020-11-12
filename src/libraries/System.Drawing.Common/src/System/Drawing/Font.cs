@@ -251,12 +251,7 @@ namespace System.Drawing
         /// <summary>
         /// Gets the hash code for this <see cref='Font'/>.
         /// </summary>
-        public override int GetHashCode()
-        {
-            return unchecked((int)((((uint)_fontStyle << 13) | ((uint)_fontStyle >> 19)) ^
-                         (((uint)_fontUnit << 26) | ((uint)_fontUnit >> 6)) ^
-                         (((uint)_fontSize << 7) | ((uint)_fontSize >> 25))));
-        }
+        public override int GetHashCode() => HashCode.Combine(Name, Style, Size, Unit);
 
         /// <summary>
         /// Returns a human-readable string representation of this <see cref='Font'/>.
